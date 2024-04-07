@@ -1,2 +1,2 @@
 # RXdoc.Tech
- Medicine Info System:  This Python app retrieves comprehensive details about medicines based on user input. It uses APIs to fetch general info like medicine name and images, .
+ Medicine Info System:  This Python app retrieves comprehensive details about medicines based on user input. It uses APIs to fetch general info like medicine name and images, as well as specific details like generic and brand names, dosage forms, and product types. It also checks a recall database to alert users if a medicine has been recalled. The app handles errors gracefully and provides user-friendly messages for a smooth experience.
