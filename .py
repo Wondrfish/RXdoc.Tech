@@ -25,7 +25,7 @@ def search_medicine_details(medicine_name):
     return response1, response2
 
 def load_recalled_drugs(file_path):
-    # Load recalled drugs from Excel file into a DataFrame
+    # Load recalled drugs from Excel file into 
     try:
         df = pd.read_excel(file_path)
         recalled_drugs = df["Brand-Names"].tolist()
@@ -38,18 +38,18 @@ def main():
     medicine_name = input("Enter the Medicine name: ")
     response1, response2 = search_medicine_details(medicine_name)
 
-    # Display details from the first API
+    # Display details from the API 1mg
     if response1:
         print("\nDetails from First API:")
         print(f"Medicine Name: {response1[0]['medicineName']}")
         print(f"Details URL: {response1[0]['detailsUrl']}")
         print(f"Medicine Image: {response1[0]['medicineImage']}\n")
     else:
-        print("No data found from First API.")
+        print("No data found from 1mg.com.")
 
-    # Display generic name, brand names, dosage form, and product type from the second API
+    # Display generic name, brand names, dosage form, and product type from the NDC API
     if response2.get('results'):
-        print("Generic Name and Brand Names from Second API:")
+        print("Generic Name and Brand Names from NDC:")
         generic_name = response2['results'][0]['generic_name']
         brand_name = response2['results'][0]['brand_name']
         if generic_name == brand_name:
@@ -60,7 +60,7 @@ def main():
         print(f"Dosage Form: {response2['results'][0]['dosage_form']}")
         print(f"Product Type: {response2['results'][0]['product_type']}\n")
     else:
-        print("No data found from Second API.")
+        print("No results from NDC.")
 
     # Load recalled drugs from Excel file
     recalled_drugs = load_recalled_drugs("2024recalls.xlsx")
