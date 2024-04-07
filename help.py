@@ -42,7 +42,7 @@ def index():
     if request.method == 'POST':
         medicine_name = request.form['medicine_name']
         response1, response2 = search_medicine_details(medicine_name)
-        recalled_drugs = load_recalled_drugs("recalled_drugs.xlsx")
+        recalled_drugs = load_recalled_drugs("2024recalls.xlsx")
         return render_template('results.html', response1=response1, response2=response2, recalled_drugs=recalled_drugs)
     return render_template('index.html')
 

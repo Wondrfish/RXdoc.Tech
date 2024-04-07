@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Information Results</title>
+    <!-- Add your CSS styles or link to external stylesheets here -->
+</head>
+<body>
+    <h1>Medicine Information Results</h1>
+
+    <!-- Display details from the first API -->
+    <h2>Details from First API:</h2>
+    <p>Medicine Name: {{ response1[0]['medicineName'] }}</p>
+    <p>Details URL: <a href="{{ response1[0]['detailsUrl'] }}">{{ response1[0]['detailsUrl'] }}</a></p>
+    <img src="{{ response1[0]['medicineImage'] }}" alt="Medicine Image">
+
+    <!-- Display generic name and brand names from the second API -->
+    <h2>Generic Name and Brand Names from Second API:</h2>
+    <p>Generic Name: {{ response2['results'][0]['generic_name'] }}</p>
+    <p>Brand Name: {{ response2['results'][0]['brand_name'] }}</p>
+    <p>Dosage Form: {{ response2['results'][0]['dosage_form'] }}</p>
+    <p>Product Type: {{ response2['results'][0]['product_type'] }}</p>
+
+    <!-- Check if the medicine has been recalled -->
+    {% if medicine_name in recalled_drugs %}
+        <p>This medicine has been recalled.</p>
+    {% else %}
+        <p>This medicine has not been recalled.</p>
+    {% endif %}
+</body>
+</html>
