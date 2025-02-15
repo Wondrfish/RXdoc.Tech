@@ -6,7 +6,7 @@ def search_medicine_details(medicine_name):
     # First API
     conn1 = http.client.HTTPSConnection("medicine-name-and-details.p.rapidapi.com")
     headers1 = {
-        'X-RapidAPI-Key': "9571f24d31msh2933b7a634e1e8ep131659jsnd11c268375f9",
+        'X-RapidAPI-Key': "",
         'X-RapidAPI-Host': "medicine-name-and-details.p.rapidapi.com"
     }
     conn1.request("GET", f"/?medicineName={medicine_name}", headers=headers1)
